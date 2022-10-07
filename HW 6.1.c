@@ -5,10 +5,14 @@ int main()
 {
 	int years;
 	setlocale(LC_ALL, "RUS");
-	printf("Введите год: ");
+	printf("Р’РІРµРґРёС‚Рµ РіРѕРґ: ");
 	scanf("%d", &years);
-	if (years % 4 == 0)
-		printf("%d - високосный год", years);
-		else printf("%d - невисокосный год", years);
+	if ((years % 4 == 0) && (years % 100 == 0) && (years % 400 == 0))
+	{
+		printf("%d - РІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ", years);
+	}
+	else {
+		printf("%d - РЅРµРІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ", years);
+	}
 	return 0;
 }
