@@ -14,7 +14,7 @@ int main()
 	float q, t;
 	float x=2;
 	setlocale(LC_ALL, "RUS");
-	printf("Ââåäèòå øàã òàáóëÿöèè: ");
+	printf("Введите шаг табуляции: ");
 	scanf("%f", &q);
 	printf("| x   |   f(x)|\n");
 	t = ((pow(x, 3)) + (3 * pow(x, 2)) - 3);
