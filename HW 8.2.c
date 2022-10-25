@@ -1,5 +1,6 @@
 #define _USE_MATH_DEFINES
 #define CRT_SECURE_NO_DEPRECATE
+#define CRT_SECURE_NO_WARNING
 #include <stdio.h>
 #include <locale.h>
 #include <math.h>
@@ -15,7 +16,7 @@ int main()
 	float x=2;
 	setlocale(LC_ALL, "RUS");
 	printf("Введите шаг табуляции: ");
-	scanf("%f", &q);
+	scanf_s("%f", &q);
 	printf("| x   |   f(x)|\n");
 	t = ((pow(x, 3)) + (3 * pow(x, 2)) - 3);
 	for (; x<=4; x+=q) 
