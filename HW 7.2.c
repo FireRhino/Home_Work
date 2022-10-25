@@ -6,7 +6,7 @@ int main()
 	float a, b;
 	char n;
 	setlocale(LC_ALL, "RUS");
-	printf("Введите	 выражение: \n");
+	printf("Р’РІРµРґРёС‚Рµ РІС‹СЂР°Р¶РµРЅРёРµ: \n");
 	scanf("%f", &a);
 	scanf("%c", &n);
 	scanf("%f", &b);
@@ -16,7 +16,7 @@ int main()
 	case '-': printf("%.f-%.f=%.2f", a, b, a - b); break;
 	case '*': printf("%.f*%.f=%.2f", a, b, a * b); break;
 	case '/': printf("%.f/%.f=%.2f", a, b, a / b); break;
-	default: printf("Ошибка");
+	default: printf("РћС€РёР±РєР°");
 	}
 	return 0;
 }
