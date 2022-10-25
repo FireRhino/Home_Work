@@ -5,15 +5,15 @@ int main()
 {
 	int m, n, s=0, t=0;
 	setlocale(LC_ALL, "RUS");
-	puts("Введите два числа: ");
+	puts("Р’РІРµРґРёС‚Рµ РґРІР° Р·РЅР°С‡РµРЅРёСЏ: ");
 	scanf("%d", &m);
 	scanf("%d", &n);
 	for (int i = m; i <= n; i++)
 	{
 		s=s+i;
 		t=t+1;
-		printf("Выполнено %d раз\n", t);
+		printf("Р’С‹РїРѕР»РЅРµРЅРѕ %d СЂР°Р·\n", t);
 	}
-	printf("Результат %d\n", s);
+	printf("Р РµР·СѓР»СЊС‚Р°С‚ %d\n", s);
 	return 0;
 }
