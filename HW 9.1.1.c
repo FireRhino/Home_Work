@@ -5,12 +5,16 @@
 #define COL 9
 int main()
 {
-	int row, col;
+	int row, col, p = 1;
 	setlocale(LC_ALL, "RUS");
-	for (row = 1; row <= ROW; row++) {
-		for (col = 1; col <= COL; col++) {
-			printf("%d + %d = %d\t", row, col, row + col);
+	for (row = 1; row <= ROW; ++row)
+	{
+		for (col = 1; col <= p; col++)
+		{
+			printf("%3d", col * row);
 		}
+		col = 1;
+		p = p + 1;
 		printf("\n");
 	}
 }
