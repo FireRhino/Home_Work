@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <locale.h>
+#define _CRT_SECURE_NO_DEPREACTE
+#define N 100 
+#define XMIN -50
+#define XMAX 50
+#define NMAX 100
+float main()
+{
+	float arr[N];
+	float sg=0;
+	float pl = 0;
+	float sum_pl = 0;
+	float min = 0;
+	float sum_min = 0;
+	int i, x=2;
+	float R=0;
+	float SR=0;
+	setlocale(LC_ALL, "RUS");
+	printf("Введите шаг: ");
+	scanf("%f", &sg);
+	for (i = 0; i < N; i++)
+	{
+		R = rand() % 100 - 51;
+		arr[i] = R;
+	}
+	for (int i = 0; i < N; i++)
+	{
+		SR += arr[i];
+		if (arr[i] < 0)
+		{
+			min += arr[i];
+			sum_min += 1;
+		}
+		else
+		{
+			pl += arr[i];
+			sum_pl += 1;
+		}
+		x += sg;
+	}
+	SR = SR / N;
+	printf("Имя массива: arr\n");		
+	printf("Сумма положительных значений: %.1f\n", pl);
+	printf("Сумма отрицательных значений: %.1f\n", min);
+	printf("Кол-во положительных элементов: %.1f\n", sum_pl);
+	printf("Кол-во отрицательных элементов: %.1f\n", sum_min);
+	printf("Среднее значение: %.1f\n", SR);
+}
