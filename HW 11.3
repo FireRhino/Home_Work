@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <locale.h>
+#define _CRT_SECURE_NO_DEPREACTE
+#define N 50 
+float main()
+{
+	float arr[N];
+	int i;
+	float R = 0;
+	float SR = 0;
+	float N1 = N;
+	setlocale(LC_ALL, "RUS");
+	for (i = 0; i < N; i++)
+	{
+		R = rand() % 100;
+		arr[i] = R;
+	}
+	for (int i = 0; i < N; i++)
+	{
+		SR += arr[i];
+		if (arr[i] == 0)
+		{
+			N1 = N1 - 1;
+		}
+	}
+	SR = SR / N;
+	printf("Среднее значение: %.1f\n", SR);
+}
