@@ -17,35 +17,35 @@ int main() {
     setlocale(LC_ALL, "RUS");
     while (cycle) {
         system("cls");
-        printf("1 - значение F1\n");
-        printf("2 - значение F2\n");
-        printf("3 - значение F1 на интервале Xn, Xk\n");
-        printf("4 - значение F2 на интервале Xn, Xk\n");
-        printf("5 - построить график выбранной функции\n");
-        printf("6 - выход\n");
+        printf("1 - Р·РЅР°С‡РµРЅРёРµ F1\n");
+        printf("2 - Р·РЅР°С‡РµРЅРёРµ F2\n");
+        printf("3 - Р·РЅР°С‡РµРЅРёРµ F1 РЅР° РёРЅС‚РµСЂРІР°Р»Рµ Xn, Xk\n");
+        printf("4 - Р·РЅР°С‡РµРЅРёРµ F2 РЅР° РёРЅС‚РµСЂРІР°Р»Рµ Xn, Xk\n");
+        printf("5 - РїРѕСЃС‚СЂРѕРёС‚СЊ РіСЂР°С„РёРє РІС‹Р±СЂР°РЅРЅРѕР№ С„СѓРЅРєС†РёРё\n");
+        printf("6 - РІС‹С…РѕРґ\n");
         printf("\n");
-        printf("Выберете из списка нужное действие:\n");
+        printf("Р’С‹Р±РµСЂРµС‚Рµ РёР· СЃРїРёСЃРєР° РЅСѓР¶РЅРѕРµ РґРµР№СЃС‚РІРёРµ:\n");
         scanf("%d", &button);
         switch (button) {
-        case 1: printf("Введите аргумент х\n");
+        case 1: printf("Р’РІРµРґРёС‚Рµ Р°СЂРіСѓРјРµРЅС‚ С…\n");
             scanf("%f", &x);
             y = function_Y(x);
-            printf("Значение f(x) = %f\n", y);
+            printf("Р—РЅР°С‡РµРЅРёРµ f(x) = %f\n", y);
             system("pause");
             break;
-        case 2: printf("Введите аргумент х\n");
+        case 2: printf("Р’РІРµРґРёС‚Рµ Р°СЂРіСѓРјРµРЅС‚ С…\n");
             scanf("%f", &x);
             y = function_V(x);
-            printf("Значение f(x) = %f\n", y);
+            printf("Р—РЅР°С‡РµРЅРёРµ f(x) = %f\n", y);
             system("pause");
             break;
-        case 3: printf("Введите границы и аргументы через enter\n");
+        case 3: printf("Р’РІРµРґРёС‚Рµ РіСЂР°РЅРёС†С‹ Рё Р°СЂРіСѓРјРµРЅС‚С‹ С‡РµСЂРµР· enter\n");
             scanf("%c", &border_1);
             scanf("%c", &border_1);
             scanf("%f%f", &x_1, &x_2);
             scanf("%c", &border_2);
             scanf("%c", &border_2);
-            printf("Введите шаг h:\n");
+            printf("Р’РІРµРґРёС‚Рµ С€Р°Рі h:\n");
             scanf("%f", &h);
             x_1 += border_one(&border_1);
             x_2 += border_two(&border_2);
@@ -55,13 +55,13 @@ int main() {
             }
             system("pause");
             break;
-        case 4: printf("Введите границы и аргументы через enter\n");
+        case 4: printf("Р’РІРµРґРёС‚Рµ РіСЂР°РЅРёС†С‹ Рё Р°СЂРіСѓРјРµРЅС‚С‹ С‡РµСЂРµР· enter\n");
             scanf("%c", &border_1);
             scanf("%c", &border_1);
             scanf("%f%f", &x_1, &x_2);
             scanf("%c", &border_2);
             scanf("%c", &border_2);
-            printf("Введите шаг h:\n");
+            printf("Р’РІРµРґРёС‚Рµ С€Р°Рі h:\n");
             scanf("%f", &h);
             x_1 += border_one(&border_1);
             x_2 += border_two(&border_2);
@@ -72,17 +72,17 @@ int main() {
             system("pause");
             break;
         case 5:
-            printf("1 - построить график функции F1\n");
-            printf("2 - построить график функции F2\n");
+            printf("1 - РїРѕСЃС‚СЂРѕРёС‚СЊ РіСЂР°С„РёРє С„СѓРЅРєС†РёРё F1\n");
+            printf("2 - РїРѕСЃС‚СЂРѕРёС‚СЊ РіСЂР°С„РёРє С„СѓРЅРєС†РёРё F2\n");
             scanf("%d", &button);
             switch (button) {
-            case 1: printf("график F1\n");
-                printf("Введите интервал\n");
+            case 1: printf("РіСЂР°С„РёРє F1\n");
+                printf("Р’РІРµРґРёС‚Рµ РёРЅС‚РµСЂРІР°Р»\n");
                 scanf("%f%f", &x_1, &x_2);
                 plot(x_1, x_2, function_Y);
                 break;
-            case 2: printf("график F2\n");
-                printf("Введите интервал\n");
+            case 2: printf("РіСЂР°С„РёРє F2\n");
+                printf("Р’РІРµРґРёС‚Рµ РёРЅС‚РµСЂРІР°Р»\n");
                 scanf("%f%f", &x_1, &x_2);
                 plot(x_1, x_2, function_V);
                 break;
@@ -101,7 +101,7 @@ float function_Y(float x) {
     if ((x > 0) && (-1 <= sin(x) <= 1)) {
         y_function = exp((sin(x) * sin(x)) / (pow((0.2 * pow(x, 8)), pow(3, -1))) * (log(5 * x)));
     }
-    else printf("Аргумент находится вне ОДЗ\n");
+    else printf("РђСЂРіСѓРјРµРЅС‚ РЅР°С…РѕРґРёС‚СЃСЏ РІРЅРµ РћР”Р—\n");
     return y_function;
 }
 float function_V(float x) {
@@ -136,7 +136,7 @@ float border_two(char* border_2) {
 void plot(double x0, double x1, TFunc f)
 
 {
-    int SCREENW = 60, SCREENH = 40;//размеры поля вывода в символах
+    int SCREENW = 60, SCREENH = 40;//СЂР°Р·РјРµСЂС‹ РїРѕР»СЏ РІС‹РІРѕРґР° РІ СЃРёРјРІРѕР»Р°С…
     char screen[60][40];
     double x, y[60];
     double ymin = 0, ymax = 0;
@@ -145,14 +145,14 @@ void plot(double x0, double x1, TFunc f)
     int xz, yz;
     hx = (x1 - x0) / (SCREENW - 1);
     for (i = 0, x = x0; i < SCREENW; ++i, x += hx) {
-        y[i] = f(x); //расчет значений функции для каждой точки поля вывода графика
+        y[i] = f(x); //СЂР°СЃС‡РµС‚ Р·РЅР°С‡РµРЅРёР№ С„СѓРЅРєС†РёРё РґР»СЏ РєР°Р¶РґРѕР№ С‚РѕС‡РєРё РїРѕР»СЏ РІС‹РІРѕРґР° РіСЂР°С„РёРєР°
         if (y[i] < ymin) ymin = y[i];
         if (y[i] > ymax) ymax = y[i];
     }
     hy = (ymax - ymin) / (SCREENH - 1);
     yz = (int)floor(ymax / hy + 0.5);
     xz = (int)floor((0. - x0) / hx + 0.5);
-    //построение осей и заполнение массива отображения пробелами
+    //РїРѕСЃС‚СЂРѕРµРЅРёРµ РѕСЃРµР№ Рё Р·Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР° РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РїСЂРѕР±РµР»Р°РјРё
     for (j = 0; j < SCREENH; ++j)
         for (i = 0; i < SCREENW; ++i) {
             if (j == yz && i == xz) screen[i][j] = '+';
@@ -160,12 +160,12 @@ void plot(double x0, double x1, TFunc f)
             else if (i == xz) screen[i][j] = '|';
             else screen[i][j] = ' ';
         }
-    //определение положения значения функции на поле вывода
+    //РѕРїСЂРµРґРµР»РµРЅРёРµ РїРѕР»РѕР¶РµРЅРёСЏ Р·РЅР°С‡РµРЅРёСЏ С„СѓРЅРєС†РёРё РЅР° РїРѕР»Рµ РІС‹РІРѕРґР°
     for (i = 0; i < SCREENW; ++i) {
         j = (int)floor((ymax - y[i]) / hy + 0.5);
         screen[i][j] = '*';
     }
-    //печать массива символов
+    //РїРµС‡Р°С‚СЊ РјР°СЃСЃРёРІР° СЃРёРјРІРѕР»РѕРІ
     for (j = 0; j < SCREENH; ++j) {
         for (i = 0; i < SCREENW; ++i)  putchar(screen[i][j]);
         putchar('\n');
