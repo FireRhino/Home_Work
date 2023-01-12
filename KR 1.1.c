@@ -1,7 +1,36 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 #include <math.h>
 #include <conio.h>
+
+typedef struct INPUT_INTERVAL {
+    char border_left;
+    float first_number;
+    float second_number;
+    char border_right;
+} Interval;
+
+void input_interval(Interval* I) {
+
+    for (int i = 0; i < 4; i++) {
+        if (i == 0) {
+            scanf("%c", &I->border_left);
+            scanf("%c", &I->border_left);
+        }
+        if (i == 1) {
+            scanf("%f", &I->first_number);
+        }
+        if (i == 2) {
+            scanf("%f", &I->second_number);
+        }
+        if (i == 3) {
+            scanf("%c", &I->border_right);
+            scanf("%c", &I->border_right);
+        }
+    }
+}
+
 float border_one(char* border_1);
 float border_two(char* border_2);
 float function_Y(float);
@@ -14,9 +43,18 @@ int main() {
     char border_1, border_2;
     int button;
     int cycle = 1;
+    Interval I;
     setlocale(LC_ALL, "RUS");
-    while (cycle) {
+        while (cycle) {
         system("cls");
+        puts("Выполнил: Киселев Н.В. БИСТ-225");
+        puts("");
+        puts("Y(x)=exp((sin(x) * sin(x)) / (pow((0.2 * pow(x, 8)), pow(3, -1))) * (log(5 * x)))");
+        puts("");
+        puts("     {(fabs(x)) / (1 + pow(x, 2)) * (exp(-2 * x)) x<0");
+        puts("V(x)={pow(1 + pow(x, 2), 0.5) 0<=x<1");
+        puts("     {(1 + sin(x)) / (1 + x) x=>1");
+        puts("");
         printf("1 - значение F1\n");
         printf("2 - значение F2\n");
         printf("3 - значение F1 на интервале Xn, Xk\n");
@@ -40,15 +78,13 @@ int main() {
             system("pause");
             break;
         case 3: printf("Введите границы и аргументы через enter\n");
-            scanf("%c", &border_1);
-            scanf("%c", &border_1);
-            scanf("%f%f", &x_1, &x_2);
-            scanf("%c", &border_2);
-            scanf("%c", &border_2);
+            input_interval(&I);
             printf("Введите шаг h:\n");
             scanf("%f", &h);
-            x_1 += border_one(&border_1);
-            x_2 += border_two(&border_2);
+            x_1 = I.first_number;
+            x_2 = I.second_number;
+            x_1 += border_one(I.border_left);
+            x_2 += border_two(I.border_right);
             for (float x = x_1; x < x_2; x += h) {
                 y_function = function_Y(x);
                 printf("|%6f|%6f|\n", x, y_function);
@@ -56,15 +92,13 @@ int main() {
             system("pause");
             break;
         case 4: printf("Введите границы и аргументы через enter\n");
-            scanf("%c", &border_1);
-            scanf("%c", &border_1);
-            scanf("%f%f", &x_1, &x_2);
-            scanf("%c", &border_2);
-            scanf("%c", &border_2);
+            input_interval(&I);
             printf("Введите шаг h:\n");
             scanf("%f", &h);
-            x_1 += border_one(&border_1);
-            x_2 += border_two(&border_2);
+            x_1 = I.first_number;
+            x_2 = I.second_number;
+            x_1 += border_one(I.border_left);
+            x_2 += border_two(I.border_right);
             for (float x = x_1; x < x_2; x += h) {
                 y_function = function_V(x);
                 printf("|%6f|%6f|\n", x, y_function);
@@ -117,19 +151,19 @@ float function_V(float x) {
     }
     return y_function;
 }
-float border_one(char* border_1) {
-    if (*border_1 == '(') {
+float border_one(char border_1) {
+    if (border_1 == '(') {
         return 1;
     }
-    if (*border_1 == '[') {
+    if (border_1 == '[') {
         return 0;
     }
 }
-float border_two(char* border_2) {
-    if (*border_2 == ')') {
+float border_two(char border_2) {
+    if (border_2 == ')') {
         return 0;
     }
-    if (*border_2 == ']') {
+    if (border_2 == ']') {
         return 1;
     }
 }
