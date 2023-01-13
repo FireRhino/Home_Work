@@ -3,7 +3,6 @@
 #include <locale.h>
 #include <math.h>
 #include <conio.h>
-
 float border_one(char border_1);
 float border_two(char border_2);
 float function_Y(float);
@@ -19,59 +18,80 @@ int main() {
     setlocale(LC_ALL, "RUS");
     while (cycle) {
         system("cls");
-        printf("1 - значение F1\n");
-        printf("2 - значение F2\n");
-        printf("3 - значение F1 на интервале Xn, Xk\n");
-        printf("4 - значение F2 на интервале Xn, Xk\n");
-        printf("5 - построить график выбранной функции\n");
-        printf("6 - выход\n");
+        puts("Выполнил работу: Киселев Н. В. бИСТ-225");
+        puts("---------------------------------------");
+        puts("Y(x)=exp((sin(x) * sin(x)) / (pow((0.2 * pow(x, 8)), pow(3, -1))) * (log(5 * x)))");
+        puts("");
+        puts("     {(fabs(x)) / (1 + pow(x, 2)) * (exp(-2 * x))");
+        puts("V(x)={pow(1 + pow(x, 2), 0.5)");
+        puts("     {(1 + sin(x)) / (1 + x)");
+        puts("");
+        printf("1 - значение функции\n");
+        printf("2 - значение функции на интервале Xn, Xk\n");
+        printf("3 - построить график выбранной функции\n");
+        printf("4 - выход\n");
         printf("\n");
         printf("Выберете из списка нужное действие:\n");
         scanf("%d", &button);
         switch (button) {
-        case 1: printf("Введите аргумент х\n");
-            scanf("%f", &x);
-            y = function_Y(x);
-            printf("Значение f(x) = %f\n", y);
-            system("pause");
-            break;
-        case 2: printf("Введите аргумент х\n");
-            scanf("%f", &x);
-            y = function_V(x);
-            printf("Значение f(x) = %f\n", y);
-            system("pause");
-            break;
-        case 3: printf("Введите границы и аргументы через enter\n");
-            scanf(" %c", &border_1);
-            scanf("%f", &x_1);
-            scanf("%f", &x_2);
-            scanf(" %c", &border_2);
-            printf("Введите шаг h:\n");
-            scanf("%f", &h);
-            x_1 += border_one(border_1);
-            x_2 += border_two(border_2);
-            for (float x = x_1; x < x_2; x += h) {
-                y_function = function_Y(x);
-                printf("|%6f|%6f|\n", x, y_function);
+        case 1: 
+            printf("1 - значение F1\n");
+            printf("2 - значение F2\n");
+            scanf("%d", &button);
+            switch (button) {
+            case 1: printf("введите аргумент\n");
+                scanf("%f", &x);
+                y = function_Y(x);
+                printf("Значение f(x) = %f\n", y);
+                break;
+            case 2: printf("введите аргумент\n");
+                scanf("%f", &x);
+                y = function_V(x);
+                printf("Значение f(x) = %f\n", y);
+                break;
             }
             system("pause");
             break;
-        case 4: printf("Введите границы и аргументы через enter\n");
-            scanf(" %c", &border_1);
-            scanf("%f", &x_1);
-            scanf("%f", &x_2);
-            scanf(" %c", &border_2);
-            printf("Введите шаг h:\n");
-            scanf("%f", &h);
-            x_1 += border_one(border_1);
-            x_2 += border_two(border_2);
-            for (float x = x_1; x < x_2; x += h) {
-                y_function = function_V(x);
-                printf("|%6f|%6f|\n", x, y_function);
+        case 2: 
+            printf("1 - значение F1 на интервале Xn, Xk\n");
+            printf("2 - значение F2 на интервале Xn, Xk\n");
+            scanf("%d", &button);
+            switch (button) {
+            case 1: 
+                printf("Введите границы и аргументы через enter\n");
+                scanf(" %c", &border_1);
+                scanf("%f", &x_1);
+                scanf("%f", &x_2);
+                scanf(" %c", &border_2);
+                printf("Введите шаг h:\n");
+                scanf("%f", &h);
+                x_1 += border_one(border_1);
+                x_2 += border_two(border_2);
+                for (float x = x_1; x < x_2; x += h) {
+                    y_function = function_Y(x);
+                    printf("|%6f|%6f|\n", x, y_function);
+                }
+                system("pause");
+                break;
+            case 2: 
+                printf("Введите границы и аргументы через enter\n");
+                scanf(" %c", &border_1);
+                scanf("%f", &x_1);
+                scanf("%f", &x_2);
+                scanf(" %c", &border_2);
+                printf("Введите шаг h:\n");
+                scanf("%f", &h);
+                x_1 += border_one(border_1);
+                x_2 += border_two(border_2);
+                for (float x = x_1; x < x_2; x += h) {
+                    y_function = function_V(x);
+                    printf("|%6f|%6f|\n", x, y_function);
+                }
+                system("pause");
+                break;
             }
-            system("pause");
-            break;
-        case 5:
+             break;
+            case 3:
             printf("1 - построить график функции F1\n");
             printf("2 - построить график функции F2\n");
             scanf("%d", &button);
@@ -134,7 +154,6 @@ float border_two(char border_2) {
     }
 }
 void plot(double x0, double x1, TFunc f)
-
 {
     int SCREENW = 60, SCREENH = 40;//размеры поля вывода в символах
     char screen[60][40];
