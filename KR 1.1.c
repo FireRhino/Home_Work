@@ -18,8 +18,8 @@ int main() {
     setlocale(LC_ALL, "RUS");
     while (cycle) {
         system("cls");
-        puts("Выполнил работу: Киселев Н. В. бИСТ-225");
-        puts("---------------------------------------");
+        puts("Работу выполнил: Киселев Н.В. бИСТ-225");
+        puts("");
         puts("Y(x)=exp((sin(x) * sin(x)) / (pow((0.2 * pow(x, 8)), pow(3, -1))) * (log(5 * x)))");
         puts("");
         puts("     {(fabs(x)) / (1 + pow(x, 2)) * (exp(-2 * x))");
